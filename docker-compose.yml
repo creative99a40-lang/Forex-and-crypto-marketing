@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: cryptox
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  app:
+    build: .
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/cryptox
+      JWT_SECRET: devsecret
+      COINGECKO_BASE: https://api.coingecko.com/api/v3
+      PORT: 4000
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+
+volumes:
+  db-data:
