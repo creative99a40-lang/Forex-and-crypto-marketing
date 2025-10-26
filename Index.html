@@ -1,48 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Crypto & Forex Trading</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CryptoX — Demo Trading</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>💹 Crypto & Forex Trading</h1>
+  <header class="header">
+    <div class="brand">CryptoX</div>
     <nav>
-      <a href="#crypto">Crypto</a>
-      <a href="#forex">Forex</a>
-      <a href="#about">About</a>
+      <button id="homeBtn" class="nav-btn">Home</button>
+      <button id="marketBtn" class="nav-btn">Market</button>
+      <button id="tradeBtn" class="nav-btn">Trade</button>
+      <button id="accountBtn" class="nav-btn">Account</button>
     </nav>
+    <div class="user-area" id="userArea">
+      <button id="loginBtn" class="action">Login / Register</button>
+    </div>
   </header>
 
-  <section id="hero">
-    <h2>Trade Smarter. Trade Faster.</h2>
-    <p>Get real-time crypto and forex prices with live updates.</p>
-  </section>
+  <main id="app">
+    <!-- Home -->
+    <section id="home" class="page">
+      <div class="hero">
+        <h1>CryptoX — Trade smarter (Demo)</h1>
+        <p>Live crypto & forex prices. Practice trading with a demo balance.</p>
+        <div class="cta-row">
+          <button id="startDemo" class="primary">Start Demo</button>
+          <button id="learnMore" class="secondary">Learn More</button>
+        </div>
+      </div>
 
-  <section id="crypto">
-    <h2>🔥 Live Crypto Prices</h2>
-    <div id="crypto-prices" class="data-container">
-      <p>Loading crypto data...</p>
+      <div class="summary">
+        <div class="card">
+          <h3>Total Demo Balance</h3>
+          <div id="demoBalance" class="big">—</div>
+        </div>
+        <div class="card">
+          <h3>Top Crypto</h3>
+          <div id="topCrypto" class="list">Loading…</div>
+        </div>
+        <div class="card">
+          <h3>Top FX (USD base)</h3>
+          <div id="topForex" class="list">Loading…</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Market -->
+    <section id="market" class="page hidden">
+      <h2>Market</h2>
+      <div id="marketList" class="grid"></div>
+    </section>
+
+    <!-- Trade -->
+    <section id="trade" class="page hidden">
+      <h2>Trade (Demo)</h2>
+      <div class="trade-panel">
+        <div class="left">
+          <label for="pairSelect">Pair</label>
+          <select id="pairSelect"></select>
+
+          <label for="amountInput">Amount (USD)</label>
+          <input id="amountInput" type="number" min="1" placeholder="Amount in USD" />
+
+          <div class="radio-row">
+            <label><input type="radio" name="side" value="buy" checked /> Buy</label>
+            <label><input type="radio" name="side" value="sell" /> Sell</label>
+          </div>
+
+          <button id="placeOrder" class="primary">Place Market Order</button>
+          <div id="tradeMsg" class="msg"></div>
+        </div>
+
+        <div class="right">
+          <h4>Order Preview</h4>
+          <div id="orderPreview">Select pair and amount</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Account -->
+    <section id="account" class="page hidden">
+      <h2>Account</h2>
+      <div class="account-grid">
+        <div class="card">
+          <h3>Profile</h3>
+          <div id="profileName">Not logged in</div>
+        </div>
+        <div class="card">
+          <h3>Demo Balance (USD)</h3>
+          <div id="accountBalance" class="big">—</div>
+        </div>
+        <div class="card full">
+          <h3>Portfolio</h3>
+          <div id="portfolio">No positions yet</div>
+        </div>
+        <div class="card full">
+          <h3>Trade History</h3>
+          <div id="history">No trades yet</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal: Login/Register -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Login / Register (Demo)</h3>
+      <input id="username" placeholder="Choose username" />
+      <button id="registerNow" class="primary">Register / Login</button>
+      <button id="closeModal" class="secondary">Close</button>
     </div>
-  </section>
+  </div>
 
-  <section id="forex">
-    <h2>💱 Forex Exchange Rates</h2>
-    <div id="forex-rates" class="data-container">
-      <p>Loading forex data...</p>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2>About This Platform</h2>
-    <p>This website provides live crypto and forex updates using public APIs. 
-       Designed for traders who want fast, reliable market insights.</p>
-  </section>
-
-  <footer>
-    <p>© 2025 Crypto & Forex Trading. All rights reserved.</p>
+  <footer class="footer">
+    <small>CryptoX — Demo trading platform. No real funds accepted here.</small>
   </footer>
 
   <script src="script.js"></script>
